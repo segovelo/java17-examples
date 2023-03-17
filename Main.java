@@ -1,5 +1,6 @@
 
 import java.util.*;
+import java.time.LocalDate;
 public class Main {
 
     public static void main(String[] args) {
@@ -20,6 +21,18 @@ String[] versionElements = System.getProperty("java.version").split("\\.");
     if(isThereAmouse){
         System.out.println("There is a mouse in the list");
     } else System.out.println("There is NOT a mouse in the list");
+
+    String dayOfWeek = LocalDate.now().getDayOfWeek().toString();
+boolean freeDay = switch (dayOfWeek) {
+    case "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY" -> false;
+    case "SATURDAY", "SUNDAY" -> true;
+    default -> false;
+};
+    System.out.println("Today is " + dayOfWeek);
+    if(freeDay){
+        System.out.println("It is a free Day ");
+    } else System.out.println("It is NOT a free day");
+
     
 }
 }
